@@ -1,0 +1,38 @@
+/*
+ * @Author: 贾继康
+ * @Date: 2018-12-20 14:02:39
+ * @Last Modified by: mikey.zhaopeng
+ * @Last Modified time: 2018-12-20 14:14:41
+ * @程序功能：
+            判断一个文件是否是文本文件(.txt格式)
+ *
+ */
+
+#include <stdio.h>
+#include <string.h> // strrchr()函数
+
+int main(void)
+{
+    char sFilenname[20]; //创建chr型数组且分配内存
+    const char *pFile;
+
+    printf("请输入文件名称:");
+    scanf("%s", sFilenname);
+    pFile = strrchr(sFilenname, '.'); // 判断输入的文件名最后输出.的位置
+
+    if (pFile != NULL)
+    { // 输入不为空
+        if (strcmpi(pFile, ".exe") == 0)
+        { // 判断.exe文件
+            printf("exe文件！");
+            return 0;
+        }
+        else if (strcmpi(pFile, ".txt") == 0)
+        { // 判断.txt文件
+            printf("txt文件");
+            return 0;
+        }
+    }
+    printf("非文件格式");
+    return 0;
+}
